@@ -1,13 +1,13 @@
 [project]
 name = "chikawametadatatool"
 version = "0.1.0"
-description = "Add your description here"
+description = "Decrypt chikawa metadata."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = []
 
 [project.scripts]
-decrypt = "src.main:main"
+decrypt = "cli.main:main"
 
 [dependency-groups]
 dev = ["ruff>=0.14.10", "taskipy>=1.14.1", "ty>=0.0.10"]
@@ -29,3 +29,6 @@ quote-style = "double"
 indent-style = "space"
 skip-magic-trailing-comma = false
 line-ending = "auto"
+
+[tool.hatch.build.targets.wheel]
+packages = ["cli"]

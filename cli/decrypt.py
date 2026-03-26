@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from src.key import KEY
+from cli.key import KEY
 
 
 def decrypt_metadata(input_path: Path) -> bytes:

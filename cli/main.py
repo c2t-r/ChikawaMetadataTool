@@ -1,7 +1,7 @@
 import sys
 from pathlib import Path
 
-from src.decrypt import decrypt_metadata
+from cli.decrypt import decrypt_metadata
 
 
 def main() -> None:

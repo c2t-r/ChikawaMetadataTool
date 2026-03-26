@@ -1,17 +1,17 @@
-import sys
+import argparse
 from pathlib import Path
 
 from cli.decrypt import decrypt_metadata
 
 
 def main() -> None:
-    if len(sys.argv) < 2:
-        print("Only 1 arg accepted. <global-metadata.dat>")
-        sys.exit(1)
+    parser = argparse.ArgumentParser(description="Decrypt chikawa metadata.")
+    parser.add_argument("input", type=Path, help="Path to global-metadata.dat")
+    args = parser.parse_args()
 
-    input_path = Path(sys.argv[1])
+    input_path: Path = args.input
     decrypted = decrypt_metadata(input_path)
 
-    output_path = input_path.parent / ("decrpted-" + input_path.name)
+    output_path = input_path.parent / ("decrypted-" + input_path.name)
     with open(output_path, "wb") as f:
         f.write(decrypted)
